@@ -1,0 +1,21 @@
+package com.mx.celular;
+
+public class Celular {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		private String marca;
+		private String modelo;
+		private int ram;
+		private String almac;
+		private double precio;
+		private String color;
+		
+		public Celular() {
+			
+		}
+		
+		
+	}
+
+}

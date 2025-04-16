@@ -1,0 +1,46 @@
+package Implementacion;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Principal.IMetodos;
+
+public class ImplementacionGenerica implements IMetodos {
+	
+	protected List<Object> lista = new ArrayList<>();
+
+	@Override
+	public void guardar(Object key, Object values) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Object key, Object values) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Object key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(Object key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+	
+}

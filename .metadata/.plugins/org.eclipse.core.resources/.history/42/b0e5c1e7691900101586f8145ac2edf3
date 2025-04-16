@@ -1,0 +1,69 @@
+package com.mx.Persona;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Persona persona1 = new Persona("Mari","Lopez","Aguirre",12,"mari@gmail.com");
+		Persona persona2 = new Persona("Beto","Tolama","Perez",24,"beto@gmail.com");
+		Persona persona3 = new Persona("Rosa","Perez","Ortega",20,"rosa@gmail.com");
+		Persona persona4 = new Persona("Karen","Delgado","Perez",25,"karen@gmail.com");
+		Persona persona5 = new Persona("Alexis","Vargas","Hernandez",21,"alexis@gmail.com");
+		Persona persona6 = new Persona("Mitzy","Zamudio","Lima",23,"mitzy@gmail.com");
+		
+		Persona auxPersona = null;
+		
+		List<Persona> listaP = new ArrayList<Persona>();
+		
+		listaP.add(persona1);
+		listaP.add(persona2);
+		listaP.add(persona3);
+		listaP.add(persona4);
+		listaP.add(persona5);
+		listaP.add(persona6);
+		
+//		creacion de un menu interactivo para manipular la info en la lista
+		Scanner scan = null;
+		int menuPrincipal = 0, menuSecundario = 0, indice = 0;
+//		los menus son variables 
+		
+		String marca
+		
+//		System.out.println("elementos en la lista \n" + listaP);
+//		
+//		//metodo para buscar un elemento especifico en la lista
+//		auxPersona = listaP.get(0);
+//		System.out.println("elemento encontrado: " + auxPersona);
+//		
+//		//EDITAR
+//		auxPersona = listaP.get(1);
+//		auxPersona.setNombre("Alana");
+//		auxPersona.setEmail("alana@gmail.com");
+//		System.out.println("Elemento editado: " + auxPersona);
+//		
+//		// ELIMINAR
+//		auxPersona = listaP.get(3);
+//		listaP.remove(3);
+//		System.out.println("Lista actualizada: " + listaP);
+//		
+//		//CONTAR ELEMENTO DE LA LISTA
+//		System.out.println("Existen: " + listaP.size() + " personas en la lista.");
+//		
+//		//ELIMINAR TODO
+//		listaP.clear();
+//		
+//		// Validar si la lista esta vacia
+//		if(listaP.isEmpty()) {
+//			System.out.println("La lista es: " + listaP);
+//		} else {
+//			System.out.println("La lista es: " + listaP);
+//		}
+		
+		
+	}
+
+}

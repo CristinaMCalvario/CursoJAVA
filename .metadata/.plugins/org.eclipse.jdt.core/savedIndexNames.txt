@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+C:\Users\marga\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
+1236512923.index
+927239737.index
+2985776969.index
+1865797976.index

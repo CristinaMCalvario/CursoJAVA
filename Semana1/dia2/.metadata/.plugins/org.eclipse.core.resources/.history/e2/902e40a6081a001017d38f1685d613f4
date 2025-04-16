@@ -1,0 +1,36 @@
+package com.mx.celular;
+
+public class Implementacion implements IMetodos {
+
+	@Override
+	public void guardar(Celular celular) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(int indice, Celular celular) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Celular buscar(int indice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

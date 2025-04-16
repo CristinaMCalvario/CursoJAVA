@@ -1,0 +1,23 @@
+package Principal;
+
+import Entidades.Animal;
+import Entidades.Persona;
+
+public class Principal {
+	
+	//Animal
+	Animal a1 = new Animal(101,"vaca","mamifero",4);
+	Animal a2 = new Animal(102,"tiburon","acuatico",0);
+	Animal a3 = new Animal(103,"Buho","ave",2);
+	Animal a4 = new Animal(104,"elefante","mamifero",4);
+	
+	//Persona
+	Persona p1 = new Persona(901,"Eddy","Flores",25);
+	Persona p2 = new Persona(902,"Mario","Zavala",26);
+	Persona p3 = new Persona(903,"Jenni","Lopez",24);
+	Persona p4 = new Persona(904,"Rafa","Perez",30);
+	
+	
+	
+
+}

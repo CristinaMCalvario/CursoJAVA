@@ -1,0 +1,56 @@
+package com.mx.Alumno;
+
+import java.util.HashMap;
+
+public class Alumno {
+	private int id;
+	private String nombre;
+	private HashMap<String,Double> calificacion;
+	
+	public Alumno() {
+		
+	}
+
+	public Alumno(int id, String nombre, String calificacion) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.calificacion = new HashMap<>();
+	}
+
+	public Alumno(int id, String nombre) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.nombre = nombre;
+	}
+
+	public Alumno(int id) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Alumno [id=" + id + ", nombre=" + nombre + ", calificacion=" + calificacion + "]\n";
+	}
+	
+	
+
+}

@@ -1,0 +1,69 @@
+package com.mx.Coche;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Instanciar nuestro objeto: mandar a llamar a mi clase y agregar un valor especifico usando el constructor parametrizado
+		Coche coche1 = new Coche("Toyota", "Corolla", 2021, "rojo", 555258.70);
+		Coche coche2 = new Coche("Volkswagen", "Bentley", 2023, "negro", 100000.69);
+		Coche coche3 = new Coche("Volkswagen", "Porche", 2024, "blanco", 106894.78);
+		Coche coche4 = new Coche("Pulsa","RS200",2023,"Negra",70000.0);
+		Coche coche5 = new Coche("CFMoto","SR250FUN",2025,"Negra con rojo",75000.0);
+		Coche coche6 = new Coche("BMW","Serie 1",2024,"Negro",5285.70);
+		Coche coche7 = new Coche("chrysler","200",2020,"Azul",6733.30);
+
+	
+
+	Coche auxCoche = null;
+	
+	List<Coche> lista = new ArrayList<Coche>();
+	
+	lista.add(coche1);
+	lista.add(coche2);
+	lista.add(coche3);
+	lista.add(coche4);
+	lista.add(coche5);
+	lista.add(coche6);
+	lista.add(coche7);
+	
+	System.out.println("elementos en la lista \n" + lista);
+	
+	//metodo para buscar un elemento especifico en la lista
+	auxCoche = lista.get(0);
+	System.out.println("elemento encontrado: " + auxCoche);
+	
+	//EDITAR
+	auxCoche = lista.get(1);
+	auxCoche.setColor("amarillo");
+	auxCochesetPrecio(0);
+	System.out.println("Elemento editado: " + auxCoche);
+	
+	// ELIMINAR
+	auxCoche = lista.get(2);
+	lista.remove(2);
+	System.out.println("Lista actualizada: " + lista);
+	
+	//CONTAR ELEMENTO DE LA LISTA
+	System.out.println("Existen: " + lista.size() + " coches en la lista.");
+	
+	//ELIMINAR TODO
+	lista.clear();
+	
+	// Validar si la lista esta vacia
+	if(lista.isEmpty()) {
+		System.out.println("La lista es: " + lista);
+	} else {
+		System.out.println("La lista es: " + lista);
+	}
+	
+	}
+	
+//	Collections.sort(listaP);
+//	System.out.println("La lista nueva es: " + listaP);
+	
+}

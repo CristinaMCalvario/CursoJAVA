@@ -1,0 +1,11 @@
+package com.mx.Materia;
+
+public interface IMetodos {
+	public void guardar(Materia materia);
+	
+	public void editar(Materia materia);
+	
+	public void eliminar(Materia materia);
+	
+	public void mostrar();
+}

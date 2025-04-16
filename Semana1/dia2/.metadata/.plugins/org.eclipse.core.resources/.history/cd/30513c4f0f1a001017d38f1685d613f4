@@ -1,0 +1,39 @@
+package com.mx.Figura;
+
+public class Implementacion implements IMetodos {
+
+	@Override
+	public void guardar(Figura figura) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(int indice, Figura figura) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Figura buscar(int indice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+
+
+}

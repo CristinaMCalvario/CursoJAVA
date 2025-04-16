@@ -1,0 +1,27 @@
+package com.mx.Coche;
+
+public class Coche {
+	//Declaracion de atributos
+	private String marca;
+	private String subMarca;
+	private int modelo;
+	private String color;
+	private double precio;
+	
+	//constructor por defecto
+	public Coche() {
+		
+	}
+	
+	//Constructor paramatrizado : inicializar el objeto con valores especificoos(atributos)
+	public Coche(String marca, String subMarca, int moodelo, String color, double precio) {
+		this.marca = marca;
+		this.subMarca = subMarca;
+		this.modelo = modelo;
+		this.color = color;
+		this.precio = precio;
+	}
+	
+	
+	
+}//clase

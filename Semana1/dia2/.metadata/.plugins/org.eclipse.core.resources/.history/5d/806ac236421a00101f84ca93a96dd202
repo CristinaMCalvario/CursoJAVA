@@ -1,0 +1,540 @@
+package com.mx.Figura;
+
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+import com.mx.celular.Celular;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Figura figura1 = new Figura("Triangulo",3,3,6,10);
+		Figura figura2 = new Figura("Circulo",0,0,9,11);
+		Figura figura3 = new Figura("Cuadrado",4,4,10,18);
+		Figura figura4 = new Figura("Rectagulo",4,4,6,15);
+		Figura figura5 = new Figura("Pentagono",5,5,7,12);
+		Figura figura6 = new Figura("Trapecio",4,4,3,19);
+		
+		Figura figura = null;
+		
+		Implementacion imp = new Implementacion();
+		
+		imp.guardar(figura1);
+		imp.guardar(figura2);
+		imp.guardar(figura3);
+		imp.guardar(figura4);
+		imp.guardar(figura5);
+		imp.guardar(figura6);
+		
+		
+		Scanner datos = new Scanner(System.in);
+		String nombre;
+		int lados, vertices, area, perimetro;
+		
+		int menuP = 0, menuB = 0, menuE= 0, muenuD=0, indice = 0;
+		
+		do {
+			System.out.println("*******MENU FIGURA*******");
+			System.out.println("1.- ALTA");
+			System.out.println("2.- BUSCAR");
+			System.out.println("3.- EDITAR");
+			System.out.println("4.- ELIMINAR");
+			System.out.println("5.- MOSTRAR");
+			System.out.println("6.- CONTAR");
+			System.out.println("7.- SALIR");
+			System.out.println("--------ELIGE UNA OPCION VALIDA EN EL MENU-----");
+			
+			//TRY CATCH
+			try {
+				menuP = datos.nextInt();
+				datos.nextLine();
+				
+				switch (menuP) {
+				case 1:
+					System.out.println("-------> ALTA");
+					System.out.println("Llena los siguientes datos sobre el Celular");
+					
+					System.out.println("Nombre de la figura: ");
+					nombre = datos.nextLine();
+					
+					System.out.println("agregue lados: ");
+					lados = datos.nextInt();
+					datos.nextLine();
+					
+					System.out.println("agregue vertices");
+					vertices = datos.nextInt();
+					datos.nextLine();
+					
+					System.out.println("agregue area");
+					area= datos.nextInt();
+					datos.nextLine();
+					
+					System.out.println("agregue perimetro");
+					perimetro = datos.nextInt();
+					datos.nextLine();
+					
+					figura = new Figura(nombre, lados, vertices, area, perimetro);
+					
+					agregarFiguraUnica(imp, figura);
+					
+					//System.out.println("Se guardo con exito la figura: " + figura.getNombreF() + " en la lista");
+					break;
+
+				case 2:
+					System.out.println("---------->BUSCAR");
+					imprimirDatos(imp);
+					
+						System.out.println("ingrese la opcion  ");
+						menuB = datos.nextInt();
+						datos.nextLine();
+						
+						
+							//menu
+							
+							do {
+								System.out.println("1.- Buscar nombre");
+								System.out.println("2.- Buscar lados");
+								System.out.println("3.- Buscar vertices");
+								System.out.println("4.- Buscar area");
+								System.out.println("5.- Buscar perimetro");
+								System.out.println("6.- Regresa al menu principal");
+								System.out.println("*******Elige una opcion en el menu******");
+								
+								
+								switch (menuB) {
+								case 1:
+									System.out.println("--->Buscar por nombre");
+									System.out.println("indique el nombre:  ");
+									nombre = datos.nextLine();
+									
+									List<Figura> resulNombre = imp.buscarNombre(imp.listaF, nombre);
+									System.out.println("FIguras con el nombre '" + nombre + "':");
+							        resulNombre.forEach(System.out::println);
+									
+									break;
+								case 2:
+									System.out.println("--->Buscar por lado");
+									System.out.println("indique los lados:  ");
+									lados = datos.nextInt();
+									datos.nextLine();
+									
+									List<Figura> resulLado = imp.buscarlado(imp.listaF, lados);
+									System.out.println("FIguras con el nombre '" + lados + "':");
+							        resulLado.forEach(System.out::println);
+									
+									break;
+								case 3:
+									System.out.println("--->Buscar por vertices");
+									System.out.println("indique los vertices:  ");
+									vertices = datos.nextInt();
+									datos.nextLine();
+									
+									List<Figura> resulvert = imp.buscarVertices(imp.listaF, vertices);
+									System.out.println("FIguras con el nombre '" + vertices + "':");
+							        resulvert.forEach(System.out::println);
+									
+									break;
+								case 4:
+									System.out.println("--->Buscar por area");
+									System.out.println("indique el area:  ");
+									area = datos.nextInt();
+									datos.nextLine();
+									
+									List<Figura> resulArea = imp.buscarArea(imp.listaF, area);
+									System.out.println("FIguras con el nombre '" + area + "':");
+							        resulArea.forEach(System.out::println);
+									
+									break;
+								case 5:
+									System.out.println("--->Buscar por perimetro");
+									System.out.println("indique el perimetro:  ");
+									perimetro = datos.nextInt();
+									datos.nextLine();
+									
+									List<Figura> resulPer = imp.buscarPerimetro(imp.listaF, perimetro);
+									System.out.println("FIguras con el nombre '" + perimetro + "':");
+							        resulPer.forEach(System.out::println);
+									
+									break;
+								case 6:
+									System.out.println("regresando al menu");
+									
+									break;
+
+								default:
+									System.out.println("indice no valido ");
+									
+									break;
+								}
+								
+								
+							} while (menuB != 6 );
+							
+							//
+							
+							//System.out.println("Esta es la informacion completa del celular: " );
+							
+									
+					
+					
+					
+					
+					break;
+					
+				case 3:
+					System.out.println("---------->EDITAR");
+					imprimirDatos(imp);
+					
+					if (imp.listaF.size() >0) {
+						System.out.println("Indique el indice que desea editar: ");
+						indice = datos.nextInt();
+						datos.nextLine();
+						
+						if (indice >= 0 && indice < imp.listaF.size()) {
+							do {
+								System.out.println("*******MENU EDITAR*******");
+								System.out.println("1.- EDITAR NOMBRE");
+								System.out.println("2.- EDITAR LADOS");
+								System.out.println("3.- EDITAR VERTICES");
+								System.out.println("4.- EDITAR AREA");
+								System.out.println("5.- EDITAR PERIMETRO");
+								System.out.println("6.- SALIR");
+								System.out.println("--------ELIGE UNA OPCION VALIDA EN EL MENU-----");
+								
+								
+								menuE = datos.nextInt();
+								datos.nextLine();
+								figura = imp.buscar(indice);
+								
+								
+								switch (menuE) {
+								case 1:
+									System.out.println("Ingresa nuevo nombre: ");
+									String nuevoNombre = datos.nextLine();
+
+									boolean existe = false;
+									for (Figura f : imp.listaF) {
+									    if (f.getNombreF().equalsIgnoreCase(nuevoNombre)) {
+									        existe = true;
+									        break;
+									    }
+									}
+
+									if (existe) {
+									    System.out.println("Ese nombre ya existe. Intenta con otro.");
+									} else {
+									    figura.setNombreF(nuevoNombre);
+									    System.out.println("Nombre actualizado correctamente.");
+									}
+
+									
+									
+									break;
+								case 2:
+									System.out.println("Ingresa nuevos lados: ");
+									lados = datos.nextInt();
+									datos.nextLine();
+									boolean existel = false;
+									for (Figura f : imp.listaF) {
+									    if (f.getLados() == (lados)) {
+									        existe = true;
+									        break;
+									    }
+									}
+
+									if (existel) {
+									    System.out.println("Ese lado ya existe. Intenta con otro.");
+									} else {
+										figura.setLados(lados);
+									    System.out.println("Lado actualizado correctamente.");
+									}
+									
+									break;
+								case 3:
+									System.out.println("Ingresa nuevos vertices: ");
+									vertices = datos.nextInt();
+									datos.nextLine();
+									boolean existev = false;
+									for (Figura f : imp.listaF) {
+									    if (f.getVertices() == (vertices)) {
+									        existe = true;
+									        break;
+									    }
+									}
+
+									if (existev) {
+									    System.out.println("Ese lado ya existe. Intenta con otro.");
+									} else {
+										figura.setVertices(vertices);
+									    System.out.println("Lado actualizado correctamente.");
+									}
+								
+									
+									break;	
+								case 4:
+									System.out.println("Ingresa nueva area: ");
+									area = datos.nextInt();
+									datos.nextLine();
+									boolean existea = false;
+									for (Figura f : imp.listaF) {
+									    if (f.getArea() == (area)) {
+									        existe = true;
+									        break;
+									    }
+									}
+
+									if (existea) {
+									    System.out.println("Ese lado ya existe. Intenta con otro.");
+									} else {
+										figura.setArea(area);
+									    System.out.println("Lado actualizado correctamente.");
+									}
+									
+									
+									break;
+								case 5:
+									System.out.println("Ingresa nuevo perimetro: ");
+									perimetro = datos.nextInt();
+									datos.nextLine();
+									boolean existep = false;
+									for (Figura f : imp.listaF) {
+									    if (f.getArea() == (perimetro)) {
+									        existe = true;
+									        break;
+									    }
+									}
+
+									if (existep) {
+									    System.out.println("Ese lado ya existe. Intenta con otro.");
+									} else {
+										figura.setPerimetro(perimetro);
+									    System.out.println("Lado actualizado correctamente.");
+									}
+									
+	
+									break;
+								case 6:
+									System.out.println("Regresando al menu princupal ");
+									break;
+
+								default:
+									System.out.println("indice no valido ");
+									break;
+								}
+								
+								System.out.println("Edicion exitosa ");
+								
+							}while(menuE != 6);	
+						}else {
+							System.out.println("indice fuera de rango ");
+							
+						}	
+					}
+					break;
+					
+				case 4:
+					System.out.println("---------->EDITAR");
+					imprimirDatos(imp);
+					System.out.println("Indique el indice que desea editar: ");
+					
+					
+					do {
+						
+						System.out.println("*******MENU EDITAR*******");
+						System.out.println("1.- ELIMINAR NOMBRE");
+						System.out.println("2.- ELIMINAR LADOS");
+						System.out.println("3.- ELIMINAR VERTICES");
+						System.out.println("4.- ELIMINAR AREA");
+						System.out.println("5.- ELIMINAR PERIMETRO");
+						System.out.println("6.- SALIR");
+						System.out.println("--------ELIGE UNA OPCION VALIDA EN EL MENU-----");
+						muenuD = datos.nextInt();
+						datos.nextLine();
+						
+						switch (muenuD) {
+						case 1:
+							System.out.println("------> ELIMINAR NOMBRE");
+							System.out.println("Ingresa nuevo nombre: ");
+							nombre = datos.nextLine();
+							imp.eliminarNombre(imp.listaF, nombre);
+					        System.out.println("Lista después de eliminar nombre '" + nombre + "':");
+					        imp.listaF.forEach(System.out::println);
+							
+							
+							break;
+						case 2:
+							System.out.println("------> ELIMINAR LADOS");
+							System.out.println("Ingresa nuevos lados: ");
+							lados = datos.nextInt();
+							datos.nextLine();
+							imp.eliminarArea(imp.listaF, lados);
+					        System.out.println("Lista después de eliminar area '" + lados + "':");
+					        imp.listaF.forEach(System.out::println);
+					        break;
+						case 3:
+							System.out.println("------> ELIMINAR VERTICES");
+							System.out.println("Ingresa nuevos lados: ");
+							vertices = datos.nextInt();
+							datos.nextLine();
+							imp.eliminarArea(imp.listaF, vertices);
+					        System.out.println("Lista después de eliminar area '" + vertices + "':");
+					        imp.listaF.forEach(System.out::println);
+					        break;
+						case 4:
+							System.out.println("------> ELIMINAR AREA");
+							System.out.println("Ingresa nuevos lados: ");
+							area = datos.nextInt();
+							datos.nextLine();
+							imp.eliminarArea(imp.listaF, area);
+					        System.out.println("Lista después de eliminar area '" + area + "':");
+					        imp.listaF.forEach(System.out::println);
+					        break;
+					        
+						case 5:
+							System.out.println("------> ELIMINAR PERIMETRO");
+							System.out.println("Ingresa nuevos lados: ");
+							perimetro = datos.nextInt();
+							datos.nextLine();
+							imp.eliminarArea(imp.listaF, perimetro);
+					        System.out.println("Lista después de eliminar area '" + perimetro + "':");
+					        imp.listaF.forEach(System.out::println);
+					        break;   
+						case 6: 
+							System.out.println("Regresanso al menu principal");
+							break;
+					        
+						default:
+							System.out.println("Indice fuera de rango, escriba una opcion valido");
+							break;
+						}
+						
+					}while(muenuD != 6);
+					
+					
+					
+					break;
+				case 5: 
+					System.out.println("--------> MOSTRAR");
+					if(imp.listaF.size() > 0) {
+						imp.mostrar();
+					}else {
+						System.out.println("No hay registros en esta lista");
+					}	
+					break;
+				case 6: 
+					System.out.println("--------> CONTAR");
+					imp.contar();
+					break;
+				case 7:
+					System.out.println("--------> vuelva pronto");
+					break;
+					
+				default:
+					System.out.println("indice esta fuera de rango, intenta con uno valido");
+					break;
+				}//switch
+				
+				
+				
+			} catch(InputMismatchException e) {
+				System.out.println("Entrada invalida. por favor ingresa un numeroo");
+				datos.nextLine();
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Ocurrio un error inesperado" + e.getMessage());
+				
+			}
+			
+			
+			
+			
+			
+		} while (menuP != 7);
+		
+		
+		
+//		imp.mostrar();
+//		
+//		figura = imp.buscar(0);
+//		System.out.println("encontrado "+ figura);
+//		
+//		figura = imp.buscar(5);
+//		System.out.println("encontrado "+ figura);
+//		
+//		figura.setLados(10);
+//		figura.setVertices(11);
+//		imp.editar(5, figura);
+//		imp.mostrar();
+//		
+//		//eliminar
+//		imp.eliminar(3);
+//		imp.mostrar();
+//		
+//		//contar
+//		imp.contar();
+		
+		
+		
+		
+
+	}//main
+	
+	
+
+	private static void imprimirDatos(Implementacion imp) {
+		// TODO Auto-generated method stub
+		System.out.println("-------> FIGURAS registrados <-------");
+		if (imp.listaF.size() >0 ) {
+			for (int i = 0; i < imp.listaF.size(); i++) {
+				System.out.println("La figura [ " + i + " ]: " + imp.listaF.get(i).getNombreF());
+				
+			}	
+		}else {
+			System.out.println("No hay figuras registrados");
+		
+		}
+	}
+	
+
+	public static void agregarFiguraUnica(Implementacion imp, Figura nuevaFigura) {
+		
+	boolean existe = imp.listaF.stream().anyMatch(figura -> 
+				figura.getNombreF().equalsIgnoreCase(nuevaFigura.getNombreF()) &&
+				figura.getLados() == nuevaFigura.getLados() &&
+				figura.getVertices() == nuevaFigura.getVertices() &&
+				figura.getArea() == nuevaFigura.getArea() &&
+				figura.getPerimetro() == nuevaFigura.getPerimetro()
+		);	
+        
+		if(!existe) {
+			imp.listaF.add(nuevaFigura);
+			System.out.println("Figura agregada: " + nuevaFigura.getNombreF());
+		}else {
+			System.out.println("La FIGURA YA EXISTE EN LA LISTA: " + nuevaFigura.getNombreF() );
+		}
+    }
+	public static void buscarExistencia(Implementacion imp, Figura nuevaFigura) {
+		
+		boolean existe = imp.listaF.stream().anyMatch(figura -> 
+					figura.getNombreF().equalsIgnoreCase(nuevaFigura.getNombreF()) &&
+					figura.getLados() == nuevaFigura.getLados() &&
+					figura.getVertices() == nuevaFigura.getVertices() &&
+					figura.getArea() == nuevaFigura.getArea() &&
+					figura.getPerimetro() == nuevaFigura.getPerimetro()
+			);
+		if (existe) {
+		    System.out.println("Existe");
+		    
+		}else {
+			
+			//figura.setNombreF(nombre);
+		}
+	        
+			
+	    }
+
+}//class

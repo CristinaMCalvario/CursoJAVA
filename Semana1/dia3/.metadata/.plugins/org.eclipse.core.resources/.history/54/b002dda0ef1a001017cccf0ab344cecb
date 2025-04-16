@@ -1,0 +1,11 @@
+package Implementacion;
+
+public class impAnimal {
+
+	//metodo generalizado
+		public void contar() {
+			System.out.println("El hashmap contiene: " + hash.size() + " frutas");
+			
+		}
+	
+}

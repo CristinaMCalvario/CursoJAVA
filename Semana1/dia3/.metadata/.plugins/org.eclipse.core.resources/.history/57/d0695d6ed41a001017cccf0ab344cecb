@@ -1,0 +1,56 @@
+package com.mx.Empleado;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		//instancia de los objetos
+		Empleado e1 = new Empleado(232,"Raul","Gutierrez","Auxiliar administrativo","Contabilidad",541616735,2300.89);
+		Empleado e2 = new Empleado(234, "Ale", "Garfias", "Contadora", "Contabilidad", 228936479, 10000.69);
+		Empleado e3 = new Empleado(235, "Alexis", "Vargas", "Programador", "Tecnologia", 789654123, 20500.48);
+		Empleado e4 = new Empleado(336, "Emma", "Smith", "Administrador", "Finanzas", 98900000, 5000.00);
+		Empleado e5 = new Empleado(337, "Isabella", "James", "Tester", "Sistemas", 78600000, 6000.00);
+		
+		//objeto auxiliar
+		Empleado emp = null;
+		
+		//implementacion
+		Implementacion imp = new Implementacion();
+		
+		//guardar
+		imp.guardar(e1);
+		imp.guardar(e2);
+		imp.guardar(e3);
+		imp.guardar(e4);
+		imp.guardar(e5);
+		
+		//mostrar
+		imp.mostrar();
+		
+		//buscar
+		emp = new Empleado(232);
+		emp = imp.buscar(emp);
+		System.out.println("Encontrado: " + emp);
+		
+		//editar
+		emp = new Empleado(336);
+		emp = imp.buscar(emp);
+		emp.setApellido("Gutierritos");
+		emp.setDepartamento("Seguridad");
+		imp.editar(emp);
+		imp.mostrar();
+		
+		//eliminar
+		emp = new Empleado(235);
+		emp = imp.buscar(emp);
+		imp.editar(emp);
+		imp.mostrar();
+		
+		//contar
+		imp.contar();
+		
+		
+
+	}
+
+}

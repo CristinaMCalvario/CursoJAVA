@@ -1,0 +1,47 @@
+package Principal;
+
+import Entidades.Fruta;
+import Implementacion.impFruta;
+
+public class Principal {
+	public static void main(String[] args) {
+		
+		//fruta
+		Fruta fr1 = new Fruta("Mamey", "cafe", 30.69, 4, "Primavera");
+		Fruta fr2 = new Fruta("Ciruela", "rojo", 45.99, 2.5, "Verano");
+		Fruta fr3 = new Fruta("Melón", "Verde", 12.8, 1, "Verano");		
+		Fruta fr4 = new Fruta("Sandía", "Rojo", 44.5, 3, "Invierno");
+		Fruta fr5 = new Fruta("Mango", "Amarillo", 23.5, 1.5, "verano");
+	
+		
+		//auxiliar
+		Fruta fruta = null;
+		impFruta impF = new impFruta();
+		
+		impF.guardar(fr1.getNombre(), fr1);
+		impF.guardar(fr2.getNombre(), fr2);
+		impF.guardar(fr3.getNombre(), fr3);
+		impF.guardar(fr4.getNombre(), fr4);
+		impF.guardar(fr5.getNombre(), fr5);
+		
+		impF.buscar(fr1.getNombre());
+		
+		impF.mostrar();
+		
+		fruta = (Fruta) impF.buscar(fr1.getNombre());
+		System.out.println("encontrada: " + fruta);
+		
+		
+		impF.eliminar(fr5.getNombre());
+		impF.mostrar();
+		
+		//contar
+		impF.contar();
+		
+		/*****************************/
+		
+		
+		
+	}
+
+}

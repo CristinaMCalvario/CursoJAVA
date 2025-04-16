@@ -1,0 +1,5 @@
+package com.mx.Alumno;
+
+public interface IMetodos {
+
+}

@@ -1,0 +1,36 @@
+package com.mx.Alumno;
+
+import com.mx.Materia.Materia;
+
+public class RegistroAlumnos {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Alumno a1 = new Alumno(101,"ana");
+		Alumno a2 = new Alumno(102,"Alice");
+		Alumno a3 = new Alumno(103,"Eleanor");
+		
+		Materia m1 = new Materia("Mate");
+		Materia m2 = new Materia("Fisica");
+		Materia m3 = new Materia("Biologia");
+		
+		
+		
+		Alumno alum = null;
+		Materia mate = null;
+		
+		
+		
+		Implementacion impA = new Implementacion();
+		Implementacion impM = new Implementacion();
+		
+		//guardar
+		
+		
+		
+		
+		
+		
+	}
+
+}

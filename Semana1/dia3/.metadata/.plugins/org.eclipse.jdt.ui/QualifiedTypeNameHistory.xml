@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.mx.Empleado.IMetodos"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.mx.Empleado.Empleado"/>
+    <fullyQualifiedTypeName name="com.mx.Alumno.Alumno"/>
+    <fullyQualifiedTypeName name="Entidades.Fruta"/>
+    <fullyQualifiedTypeName name="Implementacion.ImplementacionGenerica"/>
+    <fullyQualifiedTypeName name="Entidades.Animal"/>
+    <fullyQualifiedTypeName name="Entidades.Persona"/>
+    <fullyQualifiedTypeName name="Entidades.Usuario"/>
+    <fullyQualifiedTypeName name="Principal.IMetodos"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

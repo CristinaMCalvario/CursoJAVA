@@ -1,0 +1,55 @@
+package com.mx.celular;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//intanciar el objetoo
+		Celular celular1 = new Celular("Samsung", "Galaxy",8, "125 gb",8592.60,"rojo");
+		Celular celular2 = new Celular("Huawei", "p50 pro",9, "150 gb",10000,"blanco");
+		Celular celular3 = new Celular("Oppo", "reno 10",10, "130 gb",125000.89,"azul");
+		Celular celular4 = new Celular("Nokia", "N003", 32, "512 GB", 19800, "Blanco");
+		Celular celular5 = new Celular("Sony", "SO98", 16, "512 GB", 20000, "Azul");
+		Celular celular6 = new Celular("Huawei", "Mate9", 8,  "125 gb" ,98521.60, "Negro");
+		
+		//objeto auxiliar
+		Celular celular = null;
+		
+		//mandar a llamar a la clase implentacion para poder ocupar sus metodos
+		Implementacion imp = new Implementacion();
+		
+		imp.guardar(celular1);
+		imp.guardar(celular2);
+		imp.guardar(celular3);
+		imp.guardar(celular4);
+		imp.guardar(celular5);
+		imp.guardar(celular6);
+		
+		//mostrar
+		imp.mostrar();
+		
+		celular = imp.buscar(0);
+		System.out.println("encontrado "+celular);
+		
+		
+		//
+		celular = imp.buscar(1);
+		celular.setModelo("P30 PLUS");
+		celular.setPrecio(2345.34);
+		imp.editar(1, celular);
+		imp.mostrar();
+		
+		//eliminar
+		imp.eliminar(2);
+		imp.mostrar();
+		
+		//contar
+		imp.contar();
+		
+		
+		
+		
+	}
+
+}

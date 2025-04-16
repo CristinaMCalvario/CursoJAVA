@@ -1,0 +1,49 @@
+package Principal;
+
+import Entidades.Animal;
+import Entidades.Persona;
+import Entidades.Usuario;
+import Implementacion.ImplementacionGenerica;
+import Implementacion.impAnimal;
+import Implementacion.impPersona;
+import Implementacion.impUsuario;
+
+public class Principal {
+	
+	//Animal
+	Animal a1 = new Animal(101,"vaca","mamifero",4);
+	Animal a2 = new Animal(102,"tiburon","acuatico",0);
+	Animal a3 = new Animal(103,"Buho","ave",2);
+	Animal a4 = new Animal(104,"elefante","mamifero",4);
+	
+	//Persona
+	Persona p1 = new Persona(901,"Eddy","Flores",25);
+	Persona p2 = new Persona(902,"Mario","Zavala",26);
+	Persona p3 = new Persona(903,"Jenni","Lopez",24);
+	Persona p4 = new Persona(904,"Rafa","Perez",30);
+	
+	//Usuario
+	Usuario u1 = new Usuario(1,"mago1","mago@gmail.com","123456",123456789);
+	Usuario u2 = new Usuario(1,"lupe2","lupe@gmail.com","123456",789564655);
+	Usuario u3 = new Usuario(1,"marco3","marco@gmail.com","123456",548651548);
+	Usuario u4 = new Usuario(1,"lala4","lalo@gmail.com","123456",515278458);
+	
+	//objeto auxilair
+	Animal animal= null;
+	Persona persona =null;
+	Usuario usuario= null;
+	
+	//mandar a llamar a la clase implentacion para poder ocupar sus metodos
+	impAnimal imp = new impAnimal();
+	impPersona impP = new impPersona();
+	impUsuario impU = new impUsuario();
+	
+	//ADD
+	imp.guardar(a1);
+	
+	
+	
+	
+	
+
+}

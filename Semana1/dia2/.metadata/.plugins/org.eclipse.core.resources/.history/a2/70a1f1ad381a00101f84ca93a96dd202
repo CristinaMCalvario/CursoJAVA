@@ -1,0 +1,185 @@
+package com.mx.Figura;
+
+import java.util.Scanner;
+
+import com.mx.celular.Celular;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Figura figura1 = new Figura("Triangulo",3,3,6,10);
+		Figura figura2 = new Figura("Circulo",0,0,9,11);
+		Figura figura3 = new Figura("Cuadrado",4,4,10,18);
+		Figura figura4 = new Figura("Rectagulo",4,4,6,15);
+		Figura figura5 = new Figura("Pentagono",5,5,7,12);
+		Figura figura6 = new Figura("Trapecio",4,4,3,19);
+		
+		Figura figura = null;
+		
+		Implementacion imp = new Implementacion();
+		
+		imp.guardar(figura1);
+		imp.guardar(figura2);
+		imp.guardar(figura3);
+		imp.guardar(figura4);
+		imp.guardar(figura5);
+		imp.guardar(figura6);
+		
+		
+		Scanner datos = new Scanner(System.in);
+		String nombre;
+		int lados, vertices, area, perimetro;
+		
+		int menuP = 0, menuB = 0, menuE= 0, muenuD=0;
+		
+		do {
+			System.out.println("*******MENU FIGURA*******");
+			System.out.println("1.- ALTA");
+			System.out.println("2.- BUSCAR");
+			System.out.println("3.- EDITAR");
+			System.out.println("4.- ELIMINAR");
+			System.out.println("5.- MOSTRAR");
+			System.out.println("6.- CONTAR");
+			System.out.println("7.- SALIR");
+			System.out.println("--------ELIGE UNA OPCION VALIDA EN EL MENU-----");
+			
+			//TRY CATCH
+			try {
+				menuP = datos.nextInt();
+				datos.nextLine();
+				
+				switch (menuP) {
+				case 1:
+					System.out.println("-------> ALTA");
+					System.out.println("Llena los siguientes datos sobre el Celular");
+					
+					System.out.println("Nombre de la figura: ");
+					nombre = datos.nextLine();
+					
+					System.out.println("agregue lados: ");
+					lados = datos.nextInt();
+					datos.nextLine();
+					
+					System.out.println("agregue vertices");
+					vertices = datos.nextInt();
+					datos.nextLine();
+					
+					System.out.println("agregue area");
+					area= datos.nextInt();
+					datos.nextLine();
+					
+					System.out.println("agregue perimetro");
+					perimetro = datos.nextInt();
+					datos.nextLine();
+					
+					figura = new Figura(nombre, lados, vertices, area, perimetro);
+					
+					agregarFiguraUnica(imp, figura);
+					
+					//System.out.println("Se guardo con exito la figura: " + figura.getNombreF() + " en la lista");
+					break;
+
+				case 2:
+					System.out.println("---------->BUSCAR");
+					imprimirDatos(imp);
+					
+					
+					
+					break;
+					
+				case 3:
+					
+					break;
+					
+				case 4:
+					
+					break;
+				case 5: 
+					
+					break;
+				case 6: 
+					
+					break;
+				case 7:
+					
+					break;
+					
+				default:
+					break;
+				}//switch
+				
+				
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
+			
+			
+			
+		} while (menuP != 7);
+		
+		
+		
+//		imp.mostrar();
+//		
+//		figura = imp.buscar(0);
+//		System.out.println("encontrado "+ figura);
+//		
+//		figura = imp.buscar(5);
+//		System.out.println("encontrado "+ figura);
+//		
+//		figura.setLados(10);
+//		figura.setVertices(11);
+//		imp.editar(5, figura);
+//		imp.mostrar();
+//		
+//		//eliminar
+//		imp.eliminar(3);
+//		imp.mostrar();
+//		
+//		//contar
+//		imp.contar();
+		
+		
+		
+		
+
+	}//main
+	
+	private static void imprimirDatos(Implementacion imp) {
+		// TODO Auto-generated method stub
+		System.out.println("-------> Celulares registrados <-------");
+		if (imp.listaF.size() >0 ) {
+			for (int i = 0; i < imp.listaF.size(); i++) {
+				System.out.println("La figura [ " + i + " ]: " + imp.listaF.get(i).getNombreF());
+				
+			}	
+		}else {
+			System.out.println("No hay figuras registrados");
+		
+		}
+	}
+
+	public static void agregarFiguraUnica(Implementacion imp, Figura nuevaFigura) {
+		
+	boolean existe = imp.listaF.stream().anyMatch(figura -> 
+				figura.getNombreF().equalsIgnoreCase(nuevaFigura.getNombreF()) &&
+				figura.getLados() == nuevaFigura.getLados() &&
+				figura.getVertices() == nuevaFigura.getVertices() &&
+				figura.getArea() == nuevaFigura.getArea() &&
+				figura.getPerimetro() == nuevaFigura.getPerimetro()
+		);	
+        
+		if(!existe) {
+			imp.listaF.add(nuevaFigura);
+			System.out.println("Figura agregada: " + nuevaFigura.getNombreF());
+		}else {
+			System.out.println("La FIGURA YA EXISTE EN LA LISTA: " + nuevaFigura.getNombreF() );
+		}
+    }
+
+}//class

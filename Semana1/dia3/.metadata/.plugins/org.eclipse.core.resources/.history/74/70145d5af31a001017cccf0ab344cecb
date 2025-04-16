@@ -1,0 +1,11 @@
+package Implementacion;
+
+public class impAnimal extends ImplementacionGenerica {
+
+	//metodo generalizado
+		public void contar() {
+			System.out.println("Hay registrados: " + lista.size() + " personas");
+			
+		}
+	
+}

@@ -1,0 +1,6 @@
+package com.mx.celular;
+
+public interface IMetodos {
+	
+
+}

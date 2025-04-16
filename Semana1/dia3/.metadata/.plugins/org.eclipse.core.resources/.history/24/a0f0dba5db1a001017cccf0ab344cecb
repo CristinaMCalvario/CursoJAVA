@@ -1,0 +1,9 @@
+package com.mx.Materia;
+
+public class Materia {
+
+	private String id;
+	private double calificacion;
+	
+	
+}

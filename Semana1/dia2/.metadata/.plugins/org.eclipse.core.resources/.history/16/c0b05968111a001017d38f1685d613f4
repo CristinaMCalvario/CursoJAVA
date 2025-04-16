@@ -1,0 +1,53 @@
+package com.mx.Figura;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Figura figura1 = new Figura("Triangulo",3,3,6,10);
+		Figura figura2 = new Figura("Circulo",0,0,9,11);
+		Figura figura3 = new Figura("Cuadrado",4,4,10,18);
+		Figura figura4 = new Figura("Rectagulo",4,4,6,15);
+		Figura figura5 = new Figura("Pentagono",5,5,7,12);
+		Figura figura6 = new Figura("Trapecio",4,4,3,19);
+		
+		Figura figura = null;
+		
+		Implementacion imp = new Implementacion();
+		
+		imp.guardar(figura1);
+		imp.guardar(figura2);
+		imp.guardar(figura3);
+		imp.guardar(figura4);
+		imp.guardar(figura5);
+		imp.guardar(figura6);
+		
+		
+		imp.mostrar();
+		
+		figura = imp.buscar(0);
+		System.out.println("encontrado "+ figura);
+		
+		figura = imp.buscar(1);
+		System.out.println("encontrado "+ figura);
+		
+		figura.setLados(10);
+		figura.setVertices(11);
+		imp.editar(5, figura);
+		imp.mostrar();
+		
+		//eliminar
+		imp.eliminar(3);
+		imp.mostrar();
+		
+		//contar
+		imp.contar();
+		
+		
+		
+		
+
+	}
+
+}

@@ -1,0 +1,39 @@
+package Implementacion;
+
+import Principal.IMetodos;
+
+public class ImplementacionGenerica implements IMetodos{
+
+	@Override
+	public void guardar(Object key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(int key, Object values) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(int key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+}

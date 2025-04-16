@@ -1,0 +1,417 @@
+package com.mx.Persona;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Persona persona1 = new Persona("Mari","Lopez","Aguirre",12,"mari@gmail.com");
+		Persona persona2 = new Persona("Beto","Tolama","Perez",24,"beto@gmail.com");
+		Persona persona3 = new Persona("Rosa","Perez","Ortega",20,"rosa@gmail.com");
+		Persona persona4 = new Persona("Karen","Delgado","Perez",25,"karen@gmail.com");
+		Persona persona5 = new Persona("Alexis","Vargas","Hernandez",21,"alexis@gmail.com");
+		Persona persona6 = new Persona("Mitzy","Zamudio","Lima",23,"mitzy@gmail.com");
+		
+		Persona auxPersona = null;
+		
+		List<Persona> listaP = new ArrayList<Persona>();
+		
+		listaP.add(persona1);
+		listaP.add(persona2);
+		listaP.add(persona3);
+		listaP.add(persona4);
+		listaP.add(persona5);
+		listaP.add(persona6);
+		
+		Scanner scan = null;
+		int menuPrincipal = 0, menuSecundario = 0, indice = 0, menuBuscar = 0, menuEliminar = 0;
+		
+		String nombre, apellidoPaterno, apellidoMaterno, email;
+		int edad;
+		
+		do {
+			System.out.println("--------------MENU-------------");
+			System.out.println("1.- Agregar nueva persona");
+			System.out.println("2.- Mostrar la lista");
+			System.out.println("3.- Editar");
+			System.out.println("4.- Buscar Persona");
+			System.out.println("5.- Eliminar Persona");
+			System.out.println("6.- Contar Personas");
+			System.out.println("7.- Limpiar Lista Persona");
+			System.out.println("8.- Salir del menu");
+			System.out.println("*******Elige una opcion en el menu******");
+			
+			scan = new Scanner(System.in);
+			menuPrincipal = scan.nextInt();
+			
+			switch (menuPrincipal) {
+			case 1:
+				System.out.println("1.- Agregar nueva Persona");
+				System.out.println("Escribe el nombre");
+				scan = new Scanner(System.in);
+				nombre = scan.nextLine();
+				
+				System.out.println("Escribe el apellido paterno");
+				scan = new Scanner(System.in);
+				apellidoPaterno = scan.nextLine();
+				
+				System.out.println("Escribe el apellido materno");
+				scan = new Scanner(System.in);
+				apellidoMaterno = scan.nextLine();
+				
+				System.out.println("Escribe la edad");
+				scan = new Scanner(System.in);
+				edad = scan.nextInt();
+				
+				System.out.println("Escribe el email");
+				scan = new Scanner(System.in);
+				email = scan.nextLine();
+				
+				
+				auxPersona = new Persona(nombre,apellidoPaterno,apellidoMaterno,edad,email);
+				listaP.add(auxPersona);
+				System.out.println("El registro fue exitoso");
+				
+				break;
+			case 2:
+				System.out.println("Mostrar Personas");
+				System.out.println("Personas\n" + listaP);
+				break;
+			case 3:
+				System.out.println("3.- Editar Persona");
+				System.out.println("Ingrese el indice para editar");
+				scan = new Scanner(System.in);
+				indice = scan.nextInt();
+				
+				auxPersona = listaP.get(indice);
+				
+				do {
+					System.out.println("1.- Editar nombre");
+					System.out.println("2.- Editar apellido paterno");
+					System.out.println("3.- Editar apellido materno");
+					System.out.println("4.- Editar edad");
+					System.out.println("5.- Editar email");
+					System.out.println("6.- Regresa al menu principal");
+					System.out.println("*******Elige una opcion en el menu******");
+					
+					scan = new Scanner(System.in);
+					menuSecundario = scan.nextInt();
+					
+					switch (menuSecundario) {
+					case 1:
+						System.out.println("Escribe el nombre");
+						scan = new Scanner(System.in);
+						nombre = scan.nextLine();
+						auxPersona.setNombre(nombre);
+						listaP.set(indice, auxPersona);
+						System.out.println("Se edito correctamente");
+						break;
+					
+					case 2:
+						System.out.println("Escribe el nuevo apellido paterno");
+						scan = new Scanner(System.in);
+						apellidoPaterno = scan.nextLine();
+						auxPersona.setApellidoPaterno(apellidoPaterno);
+						listaP.set(indice, auxPersona);
+						System.out.println("See edito correctamente");
+						break;
+					case 3:
+						System.out.println("Escribe el nuevo apellido");
+						scan = new Scanner(System.in);
+						apellidoMaterno = scan.nextLine();
+						auxPersona.setApellidoMaterno(apellidoMaterno);
+						listaP.set(indice, auxPersona);
+						System.out.println("Se edito correctamente");
+						break;
+					case 4:
+						System.out.println("Escribe la nueva edad");
+						scan = new Scanner(System.in);
+						edad = scan.nextInt();
+						auxPersona.setEdad(edad);
+						listaP.set(indice, auxPersona);
+						System.out.println("See edito correctamente");
+						break;
+					case 5:
+						System.out.println("Escribe el nuevo email");
+						scan = new Scanner(System.in);
+						email = scan.nextLine();
+						auxPersona.setEmail(email);
+						listaP.set(indice, auxPersona);
+						System.out.println("See edito correctamente");
+						break;
+						
+					case 6:
+						System.out.println("Regresanso al menu principal");
+						break;
+
+					default:
+						System.out.println("Indice fuera de rango, escriba una opcion valido");
+						break;
+					}
+					
+				} while (menuSecundario != 6);
+				break;
+			case 4:
+				System.out.println("4.- Buscar Persona");
+				System.out.println("Ingrese la opcion");
+				scan = new Scanner(System.in);
+				
+				do {
+					System.out.println("1.- Buscar nombre");
+					System.out.println("2.- Buscar apellido paterno");
+					System.out.println("3.- Buscar apellido materno");
+					System.out.println("4.- Buscar edad");
+					System.out.println("5.- Buscar email");
+					System.out.println("6.- Regresa al menu principal");
+					System.out.println("*******Elige una opcion en el menu******");
+					
+					scan = new Scanner(System.in);
+					menuBuscar = scan.nextInt();
+					
+					switch (menuBuscar) {
+					case 1:
+						System.out.println("Buscar por nombre");
+						scan = new Scanner(System.in);
+						nombre = scan.nextLine();
+			
+				        List<Persona> resultadosNombre = buscarPorNombre(listaP, nombre);
+				        System.out.println("Personas con el nombre '" + nombre + "':");
+				        resultadosNombre.forEach(System.out::println);
+				        //System.out.println();
+						System.out.println("Se edito correctamente");
+						break;
+					
+					case 2:
+						System.out.println("Escribe el nuevo apellido paterno");
+						scan = new Scanner(System.in);
+						apellidoPaterno = scan.nextLine();
+						
+						List<Persona> resultadosAP = buscarPorApellidoPaterno(listaP, apellidoPaterno);
+				        System.out.println("Personas con el apellido paterno '" + apellidoPaterno + "':");
+				        resultadosAP.forEach(System.out::println);
+						System.out.println("See edito correctamente");
+						break;
+					case 3:
+						System.out.println("Escribe el nuevo apellido");
+						scan = new Scanner(System.in);
+						apellidoMaterno = scan.nextLine();
+						
+						
+						List<Persona> resultadosAM = buscarPorApellidoMaterno(listaP, apellidoMaterno);
+				        System.out.println("Personas con el apellido paterno '" + apellidoMaterno + "':");
+				        resultadosAM.forEach(System.out::println);
+						System.out.println("Se edito correctamente");
+						break;
+					case 4:
+						System.out.println("Escribe la nueva edad");
+						scan = new Scanner(System.in);
+						edad = scan.nextInt();
+						
+						//int edadABuscar = 28;
+				        List<Persona> resultadosEdad = buscarPorEdad(listaP, edad);
+				        System.out.println("Personas con la edad de " + edad + " años:");
+				        resultadosEdad.forEach(System.out::println);
+						
+						System.out.println("See edito correctamente");
+						break;
+					case 5:
+						System.out.println("Escribe el nuevo email");
+						scan = new Scanner(System.in);
+						email = scan.nextLine();
+						
+						List<Persona> resultadosEmail = buscarPorEmail(listaP, email);
+				        System.out.println("Personas con la edad '" + email + "':");
+				        resultadosEmail.forEach(System.out::println);
+						System.out.println("See edito correctamente");
+						break;
+						
+					case 6:
+						System.out.println("Regresanso al menu principal");
+						break;
+
+					default:
+						System.out.println("Indice fuera de rango, escriba una opcion valido");
+						break;
+					}
+					
+				} while (menuBuscar != 6);
+				break;
+			case 5:
+				System.out.println("4.- Eliminar Persona");
+				System.out.println("Ingrese la opcion");
+				scan = new Scanner(System.in);
+				
+				do {
+					System.out.println("1.- Eliminar nombre");
+					System.out.println("2.- Elimiinar apellido paterno");
+					System.out.println("3.- Eliminar apellido materno");
+					System.out.println("4.- Eliminar edad");
+					System.out.println("5.- Eliminar email");
+					System.out.println("6.- Regresa al menu principal");
+					System.out.println("*******Elige una opcion en el menu******");
+					
+					scan = new Scanner(System.in);
+					menuEliminar = scan.nextInt();
+					
+					switch (menuEliminar) {
+					case 1:
+						System.out.println("Eliminar por nombre");
+						scan = new Scanner(System.in);
+						nombre = scan.nextLine();
+			
+						eliminarPorNombre(listaP, nombre);
+				        System.out.println("Lista después de eliminar personas con nombre '" + nombre + "':");
+				        listaP.forEach(System.out::println);
+				        //System.out.println();
+						System.out.println("Se edito correctamente");
+						break;
+					
+					case 2:
+						System.out.println("Eliminar por apellido paterno");
+						scan = new Scanner(System.in);
+						apellidoPaterno = scan.nextLine();
+						
+						eliminarPorAP(listaP, apellidoPaterno);
+				        System.out.println("Lista después de eliminar personas con apellido paterno '" + apellidoPaterno + "':");
+				        listaP.forEach(System.out::println);
+						System.out.println("See edito correctamente");
+						break;
+						
+					case 3:
+						System.out.println("Escribe el nuevo apellido");
+						scan = new Scanner(System.in);
+						apellidoMaterno = scan.nextLine();
+						
+						
+						eliminarPorAM(listaP, apellidoMaterno);
+				        System.out.println("Lista después de eliminar personas con apellido materno '" + apellidoMaterno + "':");
+				        listaP.forEach(System.out::println);
+						System.out.println("Se edito correctamente");
+						break;
+					case 4:
+						System.out.println("Escribe la nueva edad");
+						scan = new Scanner(System.in);
+						edad = scan.nextInt();
+						
+						eliminarPorEdad(listaP, edad);
+				        System.out.println("Lista después de eliminar personas con edad " + edad + " años:");
+				        listaP.forEach(System.out::println);
+						
+						System.out.println("See edito correctamente");
+						break;
+					case 5:
+						System.out.println("Escribe el nuevo email");
+						scan = new Scanner(System.in);
+						email = scan.nextLine();
+						
+						eliminarPorEmail(listaP, email);
+				        System.out.println("Lista después de eliminar personas con nombre '" + email + "':");
+				        listaP.forEach(System.out::println);
+						System.out.println("See elimino correctamente");
+						break;
+						
+					case 6:
+						System.out.println("Regresanso al menu principal");
+						break;
+
+					default:
+						System.out.println("Indice fuera de rango, escriba una opcion valido");
+						break;
+					}
+					
+				} while (menuBuscar != 6);
+				break;
+
+			default:
+				break;
+			}
+			
+		} while (menuPrincipal != 8);
+		
+//		System.out.println("elementos en la lista \n" + listaP);
+//		
+//		//metodo para buscar un elemento especifico en la lista
+//		auxPersona = listaP.get(0);
+//		System.out.println("elemento encontrado: " + auxPersona);
+//		
+//		//EDITAR
+//		auxPersona = listaP.get(1);
+//		auxPersona.setNombre("Alana");
+//		auxPersona.setEmail("alana@gmail.com");
+//		System.out.println("Elemento editado: " + auxPersona);
+//		
+//		// ELIMINAR
+//		auxPersona = listaP.get(3);
+//		listaP.remove(3);
+//		System.out.println("Lista actualizada: " + listaP);
+//		
+//		//CONTAR ELEMENTO DE LA LISTA
+//		System.out.println("Existen: " + listaP.size() + " personas en la lista.");
+//		
+//		//ELIMINAR TODO
+//		listaP.clear();
+//		
+//		// Validar si la lista esta vacia
+//		if(listaP.isEmpty()) {
+//			System.out.println("La lista es: " + listaP);
+//		} else {
+//			System.out.println("La lista es: " + listaP);
+//		}
+		
+		
+	}
+	public static List<Persona> buscarPorNombre(List<Persona> lista, String nombre) {
+        return lista.stream()
+                .filter(persona -> persona.getNombre().equalsIgnoreCase(nombre))
+                .collect(Collectors.toList());
+    }
+
+	public static List<Persona> buscarPorApellidoPaterno(List<Persona> lista, String apellidoPaterno) {
+        return lista.stream()
+                .filter(persona -> persona.getApellidoPaterno().equalsIgnoreCase(apellidoPaterno))
+                .collect(Collectors.toList());
+    }
+	public static List<Persona> buscarPorApellidoMaterno(List<Persona> lista, String apellidoMaterno) {
+        return lista.stream()
+                .filter(persona -> persona.getApellidoMaterno().equalsIgnoreCase(apellidoMaterno))
+                .collect(Collectors.toList());
+    }
+	
+	 public static List<Persona> buscarPorEdad(List<Persona> lista, int edad) {
+	        return lista.stream()
+	                .filter(persona -> persona.getEdad() == edad)
+	                .collect(Collectors.toList());
+	}
+	 public static List<Persona> buscarPorEmail(List<Persona> lista, String email) {
+	        return lista.stream()
+	                .filter(persona -> persona.getEmail().equalsIgnoreCase(email))
+	                .collect(Collectors.toList());
+	 }
+	 
+	 
+	// Método para eliminar personas por nombre
+	    public static void eliminarPorNombre(List<Persona> lista, String nombre) {
+	        lista.removeIf(persona -> persona.getNombre().equalsIgnoreCase(nombre));
+	    }
+	    public static void eliminarPorAP(List<Persona> lista, String apellidoPaterno) {
+	        lista.removeIf(persona -> persona.getApellidoPaterno().equalsIgnoreCase(apellidoPaterno));
+	    }
+
+	    public static void eliminarPorAM(List<Persona> lista, String apellidoMaterno) {
+	        lista.removeIf(persona -> persona.getApellidoMaterno().equalsIgnoreCase(apellidoMaterno));
+	    }
+	    // Método para eliminar personas por edad
+	    public static void eliminarPorEdad(List<Persona> lista, int edad) {
+	        lista.removeIf(persona -> persona.getEdad() == edad);
+	    }
+	    
+	    public static void eliminarPorEmail(List<Persona> lista, String email) {
+	        lista.removeIf(persona -> persona.getEmail().equalsIgnoreCase(email));
+	    }
+	
+}

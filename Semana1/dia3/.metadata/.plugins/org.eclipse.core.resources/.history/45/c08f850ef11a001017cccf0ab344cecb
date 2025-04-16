@@ -1,0 +1,11 @@
+package Principal;
+
+public interface IMetodos {
+	
+	
+	void guardar(Object key, Object values);
+	void editar(Object key, Object values);
+	void eliminar(Object key);
+	Object buscar(Object key);
+	void mostrar();
+}

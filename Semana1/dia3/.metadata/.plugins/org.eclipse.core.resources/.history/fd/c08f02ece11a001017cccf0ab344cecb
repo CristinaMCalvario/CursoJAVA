@@ -1,0 +1,41 @@
+package com.mx.Materia;
+
+import java.util.HashMap;
+
+public class Implementacion implements IMetodos {
+	
+	HashMap<String,Materia> hash = new HashMap<String,Materia>();
+	
+
+	@Override
+	public void guardar(Materia materia) {
+		// TODO Auto-generated method stub
+		
+		hash.put(materia.getId(), materia);
+	}
+
+	@Override
+	public void editar(Materia materia) {
+		// TODO Auto-generated method stub
+		hash.replace(materia.getId(), materia);
+	}
+
+	@Override
+	public void eliminar(Materia materia) {
+		// TODO Auto-generated method stub
+		hash.remove(materia.getId());
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		System.out.println(hash);
+	}
+	
+	public void contar() {
+		System.out.println("El HashMap contiene: " + hash.size() + " materia");
+	}
+	
+	
+	
+}

@@ -1,0 +1,51 @@
+package Entidades;
+
+public class Animal {
+	private String nombre;//clave
+	private String tipo;
+	private int numPatas;
+	
+	public Animal() {
+		
+	}
+
+	public Animal(String nombre, String tipo, int numPatas) {
+		super();
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.numPatas = numPatas;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getNumPatas() {
+		return numPatas;
+	}
+
+	public void setNumPatas(int numPatas) {
+		this.numPatas = numPatas;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [nombre=" + nombre + ", tipo=" + tipo + ", numPatas=" + numPatas + "]\n";
+	}
+	
+	
+	
+
+}

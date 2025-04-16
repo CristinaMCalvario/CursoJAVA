@@ -1,0 +1,50 @@
+package com.mx.Figura;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Implementacion implements IMetodos {
+
+	List<Figura> listaF = new ArrayList<Figura>();
+	
+	@Override
+	public void guardar(Figura figura) {
+		// TODO Auto-generated method stub
+		listaF.add(figura);
+		
+	}
+
+	@Override
+	public void editar(int indice, Figura figura) {
+		// TODO Auto-generated method stub
+		listaF.set(indice, figura);
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		System.out.println(listaF);
+	}
+
+	@Override
+	public void eliminar(int indice) {
+		// TODO Auto-generated method stub
+		listaF.remove(indice);
+	}
+
+	@Override
+	public Figura buscar(int indice) {
+		// TODO Auto-generated method stub
+		return listaF.get(indice);
+	}
+	
+	public void contar() {
+		int cont = listaF.size();
+		System.out.println("La lista contiene:  " + cont + " Figuras. ");
+	}
+	
+	
+	
+
+
+}
