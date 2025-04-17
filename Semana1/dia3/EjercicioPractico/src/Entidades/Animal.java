@@ -5,14 +5,14 @@ public class Animal {
 	private String nombre;
 	private String tipo;
 	private int numPatas;
-
+	
 	public Animal() {
-
+		
 	}
 
-	public Animal(int idAnimal,String nombre, String tipo, int numPatas) {
+	public Animal(int idAnimal, String nombre, String tipo, int numPatas) {
 		super();
-		this.idAnimal= idAnimal;
+		this.idAnimal = idAnimal;
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.numPatas = numPatas;
@@ -22,7 +22,7 @@ public class Animal {
 		return idAnimal;
 	}
 
-	public void setNombre(int idAnimal) {
+	public void setIdAnimal(int idAnimal) {
 		this.idAnimal = idAnimal;
 	}
 
@@ -52,10 +52,13 @@ public class Animal {
 
 	@Override
 	public String toString() {
-		return "Animal [nombre=" + nombre + ", tipo=" + tipo + ", numPatas=" + numPatas + "]\n";
+		return "Animal [idAnimal=" + idAnimal + ", nombre=" + nombre + ", tipo=" + tipo + ", numPatas=" + numPatas
+				+ "]\n";
 	}
-
-
-
-
+	
+	
+	
+	
+	
+	
 }

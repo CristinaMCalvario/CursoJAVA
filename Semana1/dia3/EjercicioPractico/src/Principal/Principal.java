@@ -45,10 +45,10 @@ public class Principal {
 	
 	imp.mostrar();
 	
-	animal =(Animal) imp.buscar(2);
+	animal =(Animal) imp.buscar(a2.getIdAnimal());
 	System.out.println("encontrada: " + animal);
 	
-	imp.eliminar(4);
+	imp.eliminar(a3.getIdAnimal());
 	imp.mostrar();
 	
 	imp.contar();

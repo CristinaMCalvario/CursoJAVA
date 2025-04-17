@@ -5,10 +5,12 @@
     <fullyQualifiedTypeName name="com.mx.Empleado.Empleado"/>
     <fullyQualifiedTypeName name="com.mx.Alumno.Alumno"/>
     <fullyQualifiedTypeName name="Entidades.Fruta"/>
-    <fullyQualifiedTypeName name="Implementacion.ImplementacionGenerica"/>
     <fullyQualifiedTypeName name="Entidades.Animal"/>
     <fullyQualifiedTypeName name="Entidades.Persona"/>
     <fullyQualifiedTypeName name="Entidades.Usuario"/>
     <fullyQualifiedTypeName name="Principal.IMetodos"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="Implementacion.ImplementacionGenerica"/>
+    <fullyQualifiedTypeName name="Entidades.Motocicleta"/>
+    <fullyQualifiedTypeName name="Principal.MotocicletaService"/>
 </qualifiedTypeNameHistroy>
