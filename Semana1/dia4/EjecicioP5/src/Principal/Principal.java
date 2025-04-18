@@ -50,7 +50,7 @@ public class Principal {
             switch (menuP) {
                 case 1:
                 	System.out.println("1.- Agregar mascota");
-                    System.out.print("¿Qué tipo de mascota? (Perro/Gato): ");
+                    System.out.print("¿Qué tipo de mascota? (Perro o Gato): ");
                     tipo = scanner.nextLine();
                     System.out.print("Ingrese nombre: ");
                     nombre = scanner.nextLine();
