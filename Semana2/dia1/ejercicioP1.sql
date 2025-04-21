@@ -1,0 +1,150 @@
+CREATE TABLE PRODUCTO(
+    ID_PRODUCTO NUMBER,
+    NOMBRE NVARCHAR2(100),
+    CATEGORIA NVARCHAR2(100),
+    PRECIO NUMBER,
+    STOCK NUMBER, 
+    PROVEEDOR NVARCHAR2(100),
+    CONSTRAINT PRODUCTO_PK PRIMARY KEY (ID_PRODUCTO)
+);
+
+
+--INSERTAR DATOS
+INSERT INTO PRODUCTO VALUES (1, 'LAPTOP DELL XPS', 'TECNOLOGIA', 23999.99, 10, 'DELL MEXICO');
+INSERT INTO PRODUCTO VALUES (2, 'IMPRESORA HP LASERJET', 'OFICINA', 4999.50, 5, 'HP LATAM');
+INSERT INTO PRODUCTO VALUES (3, 'SILLA ERGONOMICA', 'MOBILIARIO', 3499.00, 20, 'OFFICE DESIGN');
+INSERT INTO PRODUCTO VALUES (4, 'TECLADO MECANICO', 'TECNOLOGIA', 1299.90, 15, 'TECHSUPPLIERS');
+INSERT INTO PRODUCTO VALUES (5, 'ESCRITORIO DE MADERA', 'MOBILIARIO', 5999.99, 8, 'MUEBLES SA');
+INSERT INTO PRODUCTO VALUES (6, 'MONITOR SAMSUNG 24"', 'TECNOLOGIA', 3499.99, 12, 'SAMSUNG MX');
+INSERT INTO PRODUCTO VALUES (7, 'CABLE HDMI 2M', 'ACCESORIOS', 199.90, 50, 'GENERIC IMPORTS');
+INSERT INTO PRODUCTO VALUES (8, 'DISCO DURO 1TB', 'TECNOLOGIA', 1599.00, 25, 'KINGSTON MX');
+
+SELECT * FROM PRODUCTO;
+
+--Parte 1: Manipulación básica de datos
+--1.	Inserta un producto nuevo
+INSERT INTO PRODUCTO VALUES (9, 'AURICULARES BLUETOOTH', 'ACCESORIOS', 799.50, 30, 'GENERIC IMPORTS');
+
+--2.	Cambia el nombre del producto con ID 2 a 'IMPRESORA HP MULTIFUNCIONAL'
+--UPDATE EMPLEADO SET NOMBRE = 'ALEJANDRA' WHERE ID_EMPLEADO = 3;
+UPDATE PRODUCTO SET NOMBRE = 'IMPRESORA HP MULTIFUNCIONAL' WHERE ID_PRODUCTO = 2;
+
+--3.	Actualiza el stock del producto con ID 1 a 8 unidades.
+UPDATE PRODUCTO SET STOCK = 8 WHERE ID_PRODUCTO = 1;
+
+--4.	Elimina el producto con ID 7
+DELETE FROM PRODUCTO WHERE ID_PRODUCTO = 7;
+
+--Parte 2: Consultas de búsqueda
+
+--5.	Muestra todos los productos ordenados por precio de mayor a menor.
+--SELECT * FROM EMPLEADO ORDER BY EDAD DESC;
+SELECT * FROM  PRODUCTO ORDER BY PRECIO DESC;
+
+--6.	Muestra productos cuyo nombre empiece con la letra 'D'.
+--SELECT * FROM EMPLEADO WHERE NOMBRE LIKE 'A%';
+SELECT * FROM PRODUCTO WHERE NOMBRE LIKE 'D%';
+
+--7.	Muestra productos cuyo nombre contenga la palabra 'SAMSUNG'.
+SELECT * FROM PRODUCTO WHERE NOMBRE LIKE '%SAMSUNG%';
+
+--8.	Muestra productos con nombre que termine en "A".
+SELECT * FROM PRODUCTO WHERE NOMBRE LIKE '%A';
+
+--9.	Muestra los productos con un stock entre 5 y 20 unidades.
+SELECT * FROM PRODUCTO WHERE STOCK BETWEEN 5 AND 20;
+
+--10.	Muestra los productos que tengan un precio mayor a 5000 y pertenezcan a la categoría 'MOBILIARIO'.
+SELECT * FROM PRODUCTO WHERE PRECIO > 5000 AND CATEGORIA = 'MOBILIARIO';
+
+--11.	Muestra los productos que no pertenezcan a la categoría 'TECNOLOGIA'.
+SELECT * FROM PRODUCTO WHERE CATEGORIA != 'TECNOLOGIA';
+
+--12.	Muestra todos los productos cuyo proveedor no sea nulo.
+SELECT * FROM PRODUCTO WHERE PROVEEDOR IS NOT NULL;
+
+--Parte 3: Funciones de agregación y GROUP BY
+
+--13.	Muestra cuántos productos hay por cada categoría (GROUP BY).
+--SELECT DEPARTAMENTO FROM EMPLEADO GROUP BY DEPARTAMENTO;
+--SELECT DEPARTAMENTO, COUNT(ID_EMPLEADO) AS NO_EMPLEADOS FROM EMPLEADO 
+--WHERE DEPARTAMENTO IS NOT NULL GROUP BY DEPARTAMENTO;
+SELECT CATEGORIA, COUNT(ID_PRODUCTO) AS NO_PRODUCTOS FROM PRODUCTO 
+WHERE CATEGORIA IS NOT NULL GROUP BY CATEGORIA;
+
+--14.	Calcula el precio promedio de los productos.
+--SELECT AVG(EDAD) AS EDAD_PROMEDIO FROM EMPLEADO;
+SELECT ROUND(AVG(PRECIO),2) AS PRECIO_PROMEDIO FROM PRODUCTO;
+
+--15.	Muestra la suma total del stock disponible.
+SELECT SUM(STOCK) AS STOCK_TOTAL FROM PRODUCTO;
+
+--16.	¿Cuál es el precio más alto registrado?
+SELECT MAX(PRECIO) AS PRECIO_ALTO FROM PRODUCTO;
+
+--17.	¿Cuál es el precio más bajo?
+SELECT MIN(PRECIO) AS PRECIO_BAJO FROM PRODUCTO;
+
+--18.	¿Cuántos productos tienen un precio entre 1000 y 4000?
+SELECT * FROM PRODUCTO 
+WHERE PRECIO BETWEEN 1000 AND 4000;
+
+
+--Parte 4: Funciones y expresiones
+--19.	Muestra el nombre de cada producto y su precio en formato de texto:
+--"El producto [NOMBRE] cuesta $[PRECIO]".
+--SELECT CONCAT(CONCAT(CONCAT(CONCAT('EL EMPLEADO',' '),NOMBRE), ' '),APELLIDO_PATERNO)
+--AS DETALLE FROM EMPLEADO;
+SELECT CONCAT(CONCAT(CONCAT(CONCAT(CONCAT('EL PRODUCTO',' '),NOMBRE),' '),'CUESTA $'),PRECIO)
+AS DETALLE FROM PRODUCTO;
+
+
+--20.	Muestra una columna calculada que indique cuánto costaría comprar 3 
+--unidades de cada producto (usa alias).
+SELECT ID_PRODUCTO, NOMBRE, PRECIO, (PRECIO * 3) AS COSTO_3_UNIDADES FROM PRODUCTO; 
+
+--21.	Usa ROUND para mostrar el precio promedio de los productos con 2 decimales.
+SELECT ROUND(AVG(PRECIO),2) AS PRECIO_PROMEDIO FROM PRODUCTO;
+
+
+--22.	Usa TO_CHAR para mostrar el total del stock en formato '999,999'.
+--SELECT TO_CHAR(AVG(EDAD), 'fm999.0') AS PROMEDIO_EDAD FROM EMPLEADO;
+SELECT TO_CHAR(AVG(STOCK),'999,999') AS STOCKF FROM PRODUCTO;
+
+--Parte 5: Subconsultas
+--23.	Muestra el producto más caro.
+SELECT * FROM PRODUCTO WHERE
+PRECIO = (
+    SELECT MAX(PRECIO)
+    FROM PRODUCTO
+);
+
+--24.	Muestra el producto más barato de la categoría 'ACCESORIOS'.
+SELECT * FROM PRODUCTO WHERE
+PRECIO = (
+    SELECT MIN(PRECIO)
+    FROM PRODUCTO
+    WHERE CATEGORIA = 'ACCESORIOS'
+);
+
+
+--25.	Muestra todos los productos cuyo precio sea igual al precio mínimo dentro 
+--de su categoría (subconsulta correlacionada).
+SELECT * FROM PRODUCTO P1 WHERE
+PRECIO = (
+    SELECT MIN(PRECIO)
+    FROM PRODUCTO P2
+    WHERE P2.CATEGORIA = P1.CATEGORIA
+);
+
+-- Parte 6: Tabla DUAL y expresiones simples
+
+--26.	Muestra la longitud del nombre 'PRODUCTO DE PRUEBA'.
+--SELECT LENGTH('ESTA CADENA ES UNA PRUEBA PARA EL US DE LENGTH') AS TAMANIO FROM DUAL;
+SELECT LENGTH('PRODUCTO DE PRUEBA') AS TAMANIO FROM DUAL;
+
+--27.	Realiza la operación IVA = 16% sobre el precio 999.90 y muestra el resultado desde DUAL.
+SELECT (0.16 * 999.90) AS PRECIO_TOTAL FROM DUAL;
+
+--28.	Concatena la categoría y el proveedor separados por " | ".
+SELECT 'CATEGORIA: ' || CATEGORIA || ' ' || 'POVEEDOR: ' || PROVEEDOR AS DETALLE FROM PRODUCTO;
