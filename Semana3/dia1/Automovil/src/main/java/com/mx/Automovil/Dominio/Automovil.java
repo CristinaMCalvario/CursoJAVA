@@ -18,8 +18,8 @@ public class Automovil {
 	@Column(name = "SUBMARCA", columnDefinition="NVARCHAR2(100)")
 	private String submarca;
 	
-	@Column(name = "MODELO", columnDefinition="NUMBER")
-	private int modelo;
+	@Column(name = "MODELO", columnDefinition="NVARCHAR2(100)")
+	private String modelo;
 	
 	@Column(name = "COLOR", columnDefinition="NVARCHAR2(100)")
 	private String color;
@@ -31,7 +31,7 @@ public class Automovil {
 		
 	}
 
-	public Automovil(int idAutomovil, String marca, String submarca, int modelo, String color, int precio) {
+	public Automovil(int idAutomovil, String marca, String submarca, String modelo, String color, int precio) {
 		super();
 		this.idAutomovil = idAutomovil;
 		this.marca = marca;
@@ -65,11 +65,11 @@ public class Automovil {
 		this.submarca = submarca;
 	}
 
-	public int getModelo() {
+	public String getModelo() {
 		return modelo;
 	}
 
-	public void setModelo(int modelo) {
+	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
 

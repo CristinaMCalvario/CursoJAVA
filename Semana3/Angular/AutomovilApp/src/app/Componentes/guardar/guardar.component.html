@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Registrar nuevo automvil</h1>
+        </div>
+        <div class="card-body">
+            <th>Ingresa los datos correspondientes</th>
+            <form>
+                <div class="form-group">
+                    <label for="idAutomovil">ID Automovil</label>
+                    <input type="number" name="idAutomovil" class="form-control"[(ngModel)]="automovil.idAutomovil">
+                </div>
+                <div class="form-group">
+                    <label for="marca">MARCA</label>
+                    <input type="text" name="marca" class="form-control" [(ngModel)]="automovil.marca">
+                </div>
+                <div class="form-group">
+                    <label for="submarca">SUBMARCA</label>
+                    <input type="text" name="submarca" class="form-control" [(ngModel)]="automovil.subMarca">
+                </div>
+                <div class="form-group">
+                    <label for="modelo">MODELO</label>
+                    <input type="text" name="modelo" class="form-control" [(ngModel)]="automovil.modelo">
+                </div>
+                <div class="form-group">
+                    <label for="color">COLOR</label>
+                    <input type="text" name="color" class="form-control" placeholder="Ej:Amarillo, rojo" [(ngModel)]="automovil.color">
+                </div>
+                <div class="form-group">
+                    <label for="precio">PRECIO</label>
+                    <input type="number" name="precio" class="form-control" placeholder="Ej: 20000, 1000000" [(ngModel)]="automovil.precio">
+                </div>
+
+                <div class="d-flex justify-content-center m-4">
+                    <button type="button" class="btn btn-success btn-lg px-5" (click)="guardarA()">Guardar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="card border-info mb-3 mt-1" >
+        <div class="card-header">
+            <h2 class="text-center">Lista de Padres</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">APELLIDO</th>
+                    <th scope="col">EDAD</th>
+                    <th scope="col">TRABAJO</th>
+                    <th scope="col">E</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @for (padre of padres; track padre.idPadre) {
+                  <tr class="table-dark">
+                    <td>{{padre.idPadre}}</td>
+                    <td>{{padre.nombre}}</td>
+                    <td>{{padre.apellido}}</td>
+                    <td>{{padre.edad}}</td>
+                    <td>{{padre.trabajo}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-warning" (click)="editarButton(padre)"><i class="fa-solid fa-user-pen"></i></button>
+                            <button type="button" class="btn btn-danger" (click)="eliminarButton(padre)"><i class="fa-solid fa-user-xmark"></i></button>
+                    </div>
+                    </td>
+
+                  </tr>
+                 <!--  <tr class="table-dark">
+                
+                    <th scope="row">Dark</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    
+                    
+                  </tr> -->
+                }@empty {
+                    <td colspan="6" style="text-align: center;"> NO existen registros</td>
+                }
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

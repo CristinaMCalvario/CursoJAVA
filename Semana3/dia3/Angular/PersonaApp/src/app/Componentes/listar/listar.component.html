@@ -1,0 +1,48 @@
+<div class="container">
+  
+    <div *ngIf="isLoading" class="text-center mt-5">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  
+    <div *ngIf="!isLoading">
+      <h2 class="mb-4">Listado de Personas</h2>
+      
+      <div *ngIf="personas.length === 0" class="alert alert-info">
+        No hay personas registradas
+      </div>
+  
+      <table *ngIf="personas.length > 0" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido Paterno</th>
+            <th scope="col">Apellido Materno</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Elimi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas">
+            <td>{{ persona.idPersona }}</td>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.apellidoPaterno }}</td>
+            <td>{{ persona.apellidoMaterno }}</td>
+            <td>{{ persona.edad }}</td>
+            <td>{{ persona.correo }}</td>
+            <td>
+              <button type="button" class="btn btn-primary btn-sm me-2" (click)="editarButtom(persona)">Editar</button>
+              
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger btn-sm" (click)="eliminarButton(persona)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

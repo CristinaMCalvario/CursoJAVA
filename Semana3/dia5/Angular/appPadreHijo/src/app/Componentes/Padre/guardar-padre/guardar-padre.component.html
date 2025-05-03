@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card w-50, mx-auto card border-info mb-3 mt-1" style="max-width: 500px;" >
+        <div class="card-header">
+            <h2>Registrar Padres</h2>
+        </div>
+        <div class="card-body">
+            <th>Ingresa los datos del nuevo Padre</th>
+            <form >
+                <fieldset>
+                    <label for="idPadre" class="form-label">ID PADRE</label>
+                    <input class="form-control" type="number" id="idPadre" name="idPadre" placeholder="Ej. 1, 100"  [(ngModel)]="padre.idPadre">
+                </fieldset>
+                <fieldset>
+                    <label for="nombre" class="form-label">NOMBRE</label>
+                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ej. Mario"  [(ngModel)]="padre.nombre">
+                </fieldset>
+                <fieldset>
+                    <label for="apellido" class="form-label">APELLIDO (S)</label>
+                    <input class="form-control" type="text" id="apellido" name="apellido" placeholder="Ej. Zavala"  [(ngModel)]="padre.apellido">
+                </fieldset>
+                <fieldset>
+                    <label for="edad" class="form-label">EDAD</label>
+                    <input class="form-control" type="number" id="edad" name="edad" placeholder="Ej. 25"  [(ngModel)]="padre.edad">
+                </fieldset>
+                <fieldset>
+                    <label for="trabajo" class="form-label">TRABAJO</label>
+                    <input class="form-control" type="text" id="trabajo" name="trabajo" placeholder="Ej. Ingeniero"  [(ngModel)]="padre.trabajo">
+                </fieldset>
+                <div class="text-center mb-1 mt-2">
+                    <button type="button" class="btn btn-success" (click)="guardar()">Guardar <i class="fa-solid fa-floppy-disk"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -4,33 +4,32 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name= "PERSONA")
 public class Persona {
-	@NotNull(message = "Ingresa el ID")
+	
 	@Id
 	@Column(name = "ID_PERSONA", columnDefinition="NUMBER")
 	private Integer idPersona;
 	
-	@NotBlank(message = "Ingrese el nombre")
+
 	@Column(name = "NOMBRE", columnDefinition="NVARCHAR2(100)")
 	private String nombre;
 	
-	@NotBlank(message = "Ingrese el apellido Paterno")
+	
 	@Column(name = "APELLIDO_P", columnDefinition="NVARCHAR2(100)")
 	private String apellidoPaterno;
 	
-	@NotBlank(message = "Ingrese el apellido Materno")
+
 	@Column(name = "APELLIDO_M", columnDefinition="NVARCHAR2(100)")
 	private String apellidoMaterno;
 	
-	@NotNull(message = "Ingrese la  edad")
+	
 	@Column(name = "EDAD", columnDefinition="NUMBER")
 	private int edad;
 	
-	@Email(message = "Ingrese el correo")
+	
 	@Column(name = "CORREO", columnDefinition="NVARCHAR2(100)")
 	private String correo;
 	

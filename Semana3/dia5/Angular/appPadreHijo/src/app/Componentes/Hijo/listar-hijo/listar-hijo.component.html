@@ -1,0 +1,53 @@
+
+<div class="container">
+    <div class="card border-info mb-3 mt-1" >
+        <div class="card-header">
+            <h2 class="text-center">Lista de Hijos</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">APELLIDO</th>
+                    <th scope="col">EDAD</th>
+                    <th scope="col">Hobbie</th>
+                    <!-- <th scope="col">ID PADRE</th> -->
+                    <th scope="col">E</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @for (hijo of hijos; track hijo.idHijo) {
+                  <tr class="table-dark">
+                    <td>{{hijo.idHijo}}</td>
+                    <td>{{hijo.nombre}}</td>
+                    <td>{{hijo.apellido}}</td>
+                    <td>{{hijo.edad}}</td>
+                    <td>{{hijo.hobbie}}</td>
+                    <!-- <td>{{hijo.padreId}}</td> -->
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-warning"(click)="editarButton(hijo)"><i class="fa-solid fa-user-pen" ></i></button>
+                            <button type="button" class="btn btn-danger" (click)="eliminarButton(hijo)"><i class="fa-solid fa-user-xmark"></i></button>
+                    </div>
+                    </td>
+
+                  </tr>
+                 <!--  <tr class="table-dark">
+                
+                    <th scope="row">Dark</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    
+                    
+                  </tr> -->
+                }@empty {
+                    <td colspan="6" style="text-align: center;"> NO existen registros</td>
+                }
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

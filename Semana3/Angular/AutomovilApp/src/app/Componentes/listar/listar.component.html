@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Lista de Automoviles</h1>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Submarca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @for (automovil of autmoviles; track automovil.idAutomovil) {
+                        <tr>
+                            <td>{{automovil.idAutomovil}}</td>
+                            <td>{{automovil.marca}}</td>
+                            <td>{{automovil.subMarca}}</td>
+                            <td>{{automovil.modelo}}</td>
+                            <td>{{automovil.color}}</td>
+                            <td>{{automovil.precio}}</td>
+                            <td><button type="button" class="btn btn-warning" (click)="editarButtom(automovil)">Editar</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" (click)="eliminarButtom(automovil)">Eliminar</button>
+                            </td>
+
+                        </tr>
+                    }@empty {
+                        <td colspan="8" style="text-align: center;"> No existen registros </td>
+                    }
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
